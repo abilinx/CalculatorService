@@ -9,8 +9,11 @@ def calculate(request):
     print(f'body: {request.body}')
     json_object = json.loads(request.body.decode('utf8'))
     print(f'statement: ' + json_object['statement'])
-    result = calculator_library.calculate(json_object['statement'])
-    return Response('{"result": "' + str(result) + '"}')
+    try:
+        result = calculator_library.calculate(json_object['statement'])
+        return Response('{"result": "' + str(result) + '"}')
+    except calculator_library.InputSyntaxError:
+        return Response(status='400 calculator input error')
 
 
 if __name__ == '__main__':
