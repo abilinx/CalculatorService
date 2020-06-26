@@ -59,3 +59,10 @@ capabilities as we develop.
 
 Please don't judge my code for its simplicity. You've decided every aspect in
 the task description and I had little room to right "meaty" code.
+## Next Steps
+- Improve the API design. I prefer SOAP here.
+- Use Swagger, which is a cool tool for designing and documentation and shines
+when you use it for API code-generation.
+- Use logging instead of printing for more control on levels and format.
+- Implement unit-tests for the calculator_library module.
+- Implement automatic API tests. I just tested manually.
