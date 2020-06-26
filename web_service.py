@@ -2,13 +2,14 @@ from wsgiref.simple_server import make_server
 from pyramid.config import Configurator
 from pyramid.response import Response
 import json
+import calculator_library
 
 
 def calculate(request):
     print(f'body: {request.body}')
     json_object = json.loads(request.body.decode('utf8'))
     print(f'statement: ' + json_object['statement'])
-    result = eval(json_object['statement'])
+    result = calculator_library.calculate(json_object['statement'])
     return Response('{"result": "' + str(result) + '"}')
 
 
